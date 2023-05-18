@@ -1,0 +1,58 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>颜色选择器</title>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">    
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="">
+<script type="text/javascript" src="jquery.js"></script> 
+<script type="text/javascript" src="jquery.colorpicker.js"></script> 
+<script language="javascript" type="text/javascript">
+$(function(){
+        $("#cp1").colorpicker({
+            fillcolor:true
+        });
+        $("#cp2").colorpicker({
+            fillcolor:true,
+            success:function(o,color){
+                $(o).css("color",color);
+            }
+        });
+        $("#cp3").colorpicker({
+            fillcolor:true,
+            success:function(o,color){
+				$("#cp3text").val(color);
+                $("#cp3text").css("color",color);
+            }
+        });
+        $("#cp4").colorpicker({
+            fillcolor:true,
+            event:'mouseover',
+            success:function(o,color){
+				$("#cp4text").val(color);
+                $("#cp4text").css("color",color);
+            }
+        });
+        
+    });
+</script>
+<style type="text/css">
+ body,td,div
+ {
+   font-size:12px;
+ }
+</style>
+</head>
+<body>
+请输入颜色值：<input type="text" id="cp1" /><br/>
+请输入颜色值：<input type="text" id="cp2" /><br/>
+请输入颜色值：<input type="text" id="cp3text" value=""/>
+<img src="colorpicker.png" id="cp3" style="cursor:pointer;vertical-align:text-bottom"/><br/>
+请输入颜色值：<input type="text" id="cp4text" value=""/>
+<img src="colorpicker.png" id="cp4" style="cursor:pointer;vertical-align:text-bottom"/>
+</body>
+</html>
